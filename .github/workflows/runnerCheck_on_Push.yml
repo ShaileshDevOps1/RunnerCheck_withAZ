@@ -1,0 +1,41 @@
+name: Hello World Demo
+
+on:
+  push: 
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Print Hello World
+        run: echo "Hello from GitHub hosted Ubuntu runner!"
+
+      - name: Show OS details
+        run: |
+          echo "Runner OS: $RUNNER_OS"
+          uname -a
+
+      - name: Show current directory
+        run: pwd
+
+      - name: List files
+        run: ls -la
+
+      - name: Show date
+        run: date
+      
+      - name: Check Docker
+        run: docker --version
+      
+      - name: Check Python
+        run: python3 --version
+      
+      - name: Check Git
+        run: git --version
+
+      - name: Success message
+        run: echo "Workflow completed successfully!"
